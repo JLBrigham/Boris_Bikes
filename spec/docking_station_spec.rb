@@ -8,4 +8,10 @@ describe DockingStation do
   it 'should respond to release_bike method' do
     expect(subject).to respond_to(:release_bike)
   end
-  end
+
+ it 'releases a working bike' do
+   bike = subject.release_bike
+   expect(bike).to be_working
+ end
+
+end
