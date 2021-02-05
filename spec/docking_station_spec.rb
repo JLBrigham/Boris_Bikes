@@ -31,14 +31,10 @@ describe DockingStation do
 
  it 'docks a bike' do
    bike = Bike.new
-   expect(subject.dock(bike)).to eq bike
+   expect(subject.dock(bike)).to eq [bike]
  end
 
- it 'returns a bike' do
-   bike = Bike.new
-   subject.dock(bike)
-   expect(subject.bike).to eq(bike)
- end
+
 
  it 'raise error when asked to release when empty' do
  new_station = DockingStation.new
@@ -47,7 +43,7 @@ end
 
 it 'raise an error when storage is full' do
 new_station = DockingStation.new
-new_station.dock("bike")
+20.times { new_station.dock Bike.new }
 expect{new_station.dock("bike")}.to raise_error("Station Full")
 end
 end

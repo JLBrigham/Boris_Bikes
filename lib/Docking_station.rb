@@ -14,7 +14,13 @@ class DockingStation
   end
 
   def dock(bike)
-    @bike = bike
+    if @storage.count >= 20
+      raise "Station Full"
+    end
+    @storage << bike
+    @storage
   end
+
+ 
 
 end
