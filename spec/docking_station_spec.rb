@@ -40,7 +40,8 @@ describe DockingStation do
    expect(subject.bike).to eq(bike)
  end
 
- it 'raise error when asked to release when empty'
- it {}
-
+ it 'raise error when asked to release when empty' do
+ new_station = DockingStation.new
+ expect{new_station.release_bike}.to raise_error("Empty Station Error")
+end
 end
