@@ -44,4 +44,10 @@ describe DockingStation do
  new_station = DockingStation.new
  expect{new_station.release_bike}.to raise_error("Empty Station Error")
 end
+
+it 'raise an error when storage is full' do
+new_station = DockingStation.new
+new_station.dock("bike")
+expect{new_station.dock("bike")}.to raise_error("Station Full")
+end
 end
